@@ -16,10 +16,10 @@
   <!-- Favicon -->
   <link rel="icon" type="image/jpeg" href="quekanonas-mascots.jpg">
   
-  <!-- Google Fonts: Syne, Bebas Neue & Plus Jakarta Sans -->
+  <!-- Tipografías: Adlery Blockletter (Local) + Google Fonts (Permanent Marker, Luckiest Guy, Syne, Bebas Neue & Plus Jakarta Sans) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Luckiest+Guy&family=Permanent+Marker&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -61,6 +61,7 @@
             display: ['Syne', 'sans-serif'],
             bebas: ['Bebas Neue', 'sans-serif'],
             sans: ['Plus Jakarta Sans', 'sans-serif'],
+            logo: ['"Adlery Blockletter"', '"Adlery Pro Blockletter"', '"Permanent Marker"', '"Luckiest Guy"', 'cursive', 'sans-serif'],
           },
           animation: {
             'marquee-left': 'marqueeLeft 26s linear infinite',
@@ -103,7 +104,21 @@
   </script>
 
   <style>
-    /* Reset móvil y prevención de desborde horizontal */
+    /* Tipografía Adlery Blockletter Oficial de Quekañonas */
+    @font-face {
+      font-family: 'Adlery Blockletter';
+      src: url('adlery-blockletter.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    .font-brand-logo {
+      font-family: 'Adlery Blockletter', 'Adlery Pro Blockletter', 'Permanent Marker', 'Luckiest Guy', cursive, sans-serif;
+      letter-spacing: 0.05em;
+    }
+
+    /* Reset móvil y control de desbordes */
     html, body {
       max-width: 100vw;
       overflow-x: hidden;
@@ -137,7 +152,7 @@
       box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
     }
 
-    /* Tarjetas Interactivas Neo-Brutalistas */
+    /* Tarjetas Interactivas */
     .card-neo-brutal {
       transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
       border: 1px solid rgba(255, 255, 255, 0.08);
@@ -162,10 +177,9 @@
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-    /* Touch target mínimo accesible */
+    /* Touch targets mínimos */
     .tap-target {
-      min-height: 44px;
-      min-width: 44px;
+      min-height: 40px;
     }
   </style>
 </head>
@@ -173,10 +187,9 @@
 <body class="bg-brand-dark text-brand-cream font-sans antialiased selection:bg-brand-orange selection:text-white pb-28 md:pb-0">
 
   <!-- ==================== HEADER & TOP BANNER CONTENEDOR UNIFICADO ==================== -->
-  <!-- Al unificarlos en un solo wrapper fijo, JAMÁS colisionan ni se enciman en pantallas pequeñas -->
   <div class="fixed top-0 left-0 w-full z-40">
     
-    <!-- Top Announcement: 1 sola línea limpia con truncate que nunca colisiona -->
+    <!-- Top Announcement: 1 sola línea con truncate para evitar cualquier colisión -->
     <div class="bg-brand-crimson text-white text-[10px] sm:text-[11px] font-black uppercase tracking-wider py-1.5 px-3 text-center flex items-center justify-center gap-2 sm:gap-3 overflow-hidden whitespace-nowrap shadow-sm border-b border-white/10">
       <span class="w-2 h-2 rounded-full bg-brand-gold animate-ping shrink-0"></span>
       <span class="truncate">¡SABOR CON MÚSCULO DESDE 1995 EN JURIQUILLA!</span>
@@ -189,22 +202,23 @@
     </div>
 
     <!-- Barra de Navegación Principal -->
-    <header class="max-w-7xl mx-auto px-3 sm:px-6 pt-2 transition-all duration-300">
-      <div id="nav-inner" class="bg-brand-dark/95 backdrop-blur-xl border border-white/15 rounded-full px-3.5 sm:px-5 py-2 sm:py-2.5 flex items-center justify-between shadow-2xl transition-all duration-300">
+    <header class="max-w-7xl mx-auto px-2.5 sm:px-6 pt-2 transition-all duration-300">
+      <div id="nav-inner" class="bg-brand-dark/95 backdrop-blur-xl border border-white/15 rounded-full px-3 sm:px-5 py-2 sm:py-2.5 flex items-center justify-between shadow-2xl transition-all duration-300 gap-2">
         
-        <!-- Logo Brand con Mascota -->
-        <a href="#hero" class="flex items-center gap-2 sm:gap-3 group shrink-0">
+        <!-- Logo Brand con Mascota & Tipografía Adlery Blockletter Oficial -->
+        <a href="#hero" class="flex items-center gap-2 sm:gap-2.5 group shrink-0 min-w-0">
           <div class="relative w-9 h-9 sm:w-11 sm:h-11 rounded-full overflow-hidden border-2 border-brand-orange shadow-md group-hover:scale-105 transition-transform duration-300 bg-brand-orange flex items-center justify-center shrink-0">
             <img src="quekanonas-mascots.jpg" 
                  alt="Quekañonas Mascota" 
                  class="w-full h-full object-cover group-hover:rotate-6 transition-transform duration-300"
                  onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1599974579688-8dbdd335c77f?auto=format&fit=crop&w=200&q=80';">
           </div>
-          <div class="flex flex-col">
-            <span class="font-display font-black text-xl sm:text-2xl tracking-tighter text-white uppercase group-hover:text-brand-orange transition-colors leading-none">
-              Quekañonas
+          <div class="flex flex-col min-w-0">
+            <!-- Palabra Quekañonas con Tipografía Adlery Blockletter -->
+            <span class="font-brand-logo font-black text-xl sm:text-2xl tracking-wide text-white uppercase group-hover:text-brand-orange transition-colors leading-none truncate">
+              QUEKAÑONAS
             </span>
-            <span class="text-[8px] sm:text-[9px] tracking-widest text-brand-gold uppercase font-bold mt-0.5">
+            <span class="text-[8px] sm:text-[9px] tracking-wider text-brand-gold uppercase font-bold mt-0.5 truncate">
               Desde 1995 • Juriquilla
             </span>
           </div>
@@ -226,25 +240,26 @@
           </a>
         </nav>
 
-        <!-- Botones de Acción / Delivery -->
-        <div class="flex items-center gap-2 sm:gap-3">
+        <!-- Botones de Acción (Solución al encimado: shrink-0, whitespace-nowrap y leading-none) -->
+        <div class="flex items-center gap-1.5 sm:gap-3 shrink-0">
           <a href="https://www.ubereats.com/mx/store/quekanonas-juriquilla-quekas-fritas/Ac-1CqJPWVuyh3cGKQbubQ" 
              target="_blank" 
-             class="hidden md:inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 text-white text-[11px] font-bold tracking-wider uppercase border border-white/10 transition-all hover:scale-105">
+             class="hidden md:inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 text-white text-[11px] font-bold tracking-wider uppercase border border-white/10 transition-all hover:scale-105 shrink-0 whitespace-nowrap">
             <i class="fa-solid fa-bag-shopping text-brand-gold"></i>
             <span>Uber Eats</span>
           </a>
           
+          <!-- Botón "Pedir Ahora" 100% libre de encimado con texto en 1 sola línea -->
           <button onclick="openOrderModal()" 
-                  class="inline-flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full bg-brand-orange hover:bg-brand-orangeHover text-white text-[11px] sm:text-xs font-black tracking-wider uppercase shadow-lg shadow-brand-orange/30 transition-all hover:scale-105 active:scale-95 group tap-target">
-            <span>Pedir Ahora</span>
-            <div class="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-white text-brand-orange flex items-center justify-center text-[9px] sm:text-[10px] group-hover:translate-x-0.5 transition-transform">
+                  class="shrink-0 whitespace-nowrap inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full bg-brand-orange hover:bg-brand-orangeHover text-white text-[11px] sm:text-xs font-black tracking-wider uppercase shadow-lg shadow-brand-orange/30 transition-all hover:scale-105 active:scale-95 leading-none tap-target">
+            <span class="whitespace-nowrap">Pedir Ahora</span>
+            <div class="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-white text-brand-orange flex items-center justify-center text-[9px] sm:text-[10px] shrink-0">
               <i class="fa-solid fa-arrow-right"></i>
             </div>
           </button>
 
           <!-- Mobile Hamburger Toggle -->
-          <button onclick="toggleMobileNav()" aria-label="Abrir Menú" class="lg:hidden w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:text-brand-orange transition-colors tap-target">
+          <button onclick="toggleMobileNav()" aria-label="Abrir Menú" class="lg:hidden w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:text-brand-orange transition-colors shrink-0 tap-target">
             <i class="fa-solid fa-bars text-base" id="menu-icon"></i>
           </button>
         </div>
@@ -253,21 +268,21 @@
 
       <!-- Mobile Nav Drawer -->
       <div id="mobile-nav" class="hidden lg:hidden pt-2">
-        <div class="bg-brand-surface border border-white/20 rounded-3xl p-5 shadow-2xl flex flex-col gap-3">
-          <a href="#menu" onclick="toggleMobileNav()" class="text-sm font-bold uppercase tracking-wider py-2 border-b border-white/5 hover:text-brand-orange transition-colors flex items-center justify-between">
+        <div class="bg-brand-surface border border-white/20 rounded-3xl p-5 shadow-2xl flex flex-col gap-2.5">
+          <a href="#menu" onclick="toggleMobileNav()" class="text-sm font-bold uppercase tracking-wider py-2.5 px-2 border-b border-white/10 hover:text-brand-orange transition-colors flex items-center justify-between">
             <span>El Menú Kañón</span> <i class="fa-solid fa-chevron-right text-xs text-brand-gold"></i>
           </a>
-          <a href="#experiencia" onclick="toggleMobileNav()" class="text-sm font-bold uppercase tracking-wider py-2 border-b border-white/5 hover:text-brand-orange transition-colors flex items-center justify-between">
+          <a href="#experiencia" onclick="toggleMobileNav()" class="text-sm font-bold uppercase tracking-wider py-2.5 px-2 border-b border-white/10 hover:text-brand-orange transition-colors flex items-center justify-between">
             <span>La Tradición</span> <i class="fa-solid fa-chevron-right text-xs text-brand-gold"></i>
           </a>
-          <a href="#menu" onclick="toggleMobileNav()" class="text-sm font-bold uppercase tracking-wider py-2 border-b border-white/5 hover:text-brand-orange transition-colors flex items-center justify-between">
+          <a href="#menu" onclick="toggleMobileNav()" class="text-sm font-bold uppercase tracking-wider py-2.5 px-2 border-b border-white/10 hover:text-brand-orange transition-colors flex items-center justify-between">
             <span>Especialidades</span> <i class="fa-solid fa-chevron-right text-xs text-brand-gold"></i>
           </a>
-          <a href="#sucursales" onclick="toggleMobileNav()" class="text-sm font-bold uppercase tracking-wider py-2 border-b border-white/5 hover:text-brand-orange transition-colors flex items-center justify-between">
+          <a href="#sucursales" onclick="toggleMobileNav()" class="text-sm font-bold uppercase tracking-wider py-2.5 px-2 border-b border-white/10 hover:text-brand-orange transition-colors flex items-center justify-between">
             <span>Ubicación Juriquilla</span> <i class="fa-solid fa-chevron-right text-xs text-brand-gold"></i>
           </a>
           <div class="pt-2">
-            <a href="https://www.ubereats.com/mx/store/quekanonas-juriquilla-quekas-fritas/Ac-1CqJPWVuyh3cGKQbubQ" target="_blank" class="w-full py-3.5 rounded-full bg-brand-greenBright text-black font-black text-center text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg">
+            <a href="https://www.ubereats.com/mx/store/quekanonas-juriquilla-quekas-fritas/Ac-1CqJPWVuyh3cGKQbubQ" target="_blank" class="w-full py-3.5 rounded-full bg-brand-greenBright text-black font-black text-center text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg whitespace-nowrap">
               <i class="fa-solid fa-motorcycle text-sm"></i> Pedir en Uber Eats
             </a>
           </div>
@@ -277,7 +292,7 @@
 
   </div>
 
-  <!-- ==================== HERO SECTION INMERSIVA (VIDEO BACKGROUND) ==================== -->
+  <!-- ==================== HERO SECTION INMERSIVA ==================== -->
   <section id="hero" class="relative min-h-[92vh] sm:min-h-screen flex items-center justify-center pt-32 pb-16 sm:pt-36 sm:pb-20 overflow-hidden">
     
     <!-- Video de Fondo en Loop -->
@@ -297,7 +312,7 @@
       <div class="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:16px_16px]"></div>
     </div>
 
-    <!-- Rotating Stamp Badge (Visible sólo en pantallas grandes para no estorbar en móvil) -->
+    <!-- Rotating Stamp Badge (Visible sólo en pantallas grandes) -->
     <div class="absolute top-36 right-8 lg:right-14 z-20 hidden md:block">
       <div class="relative w-32 h-32 lg:w-40 lg:h-40 animate-spin-slow">
         <svg viewBox="0 0 200 200" class="w-full h-full">
@@ -314,10 +329,10 @@
       </div>
     </div>
 
-    <!-- Contenido Hero Principal (Con interlineado amplio y cero empalmes) -->
+    <!-- Contenido Hero Principal -->
     <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center flex flex-col items-center">
       
-      <!-- Badge interactivo de la Mascota (Con flex-wrap seguro para móvil) -->
+      <!-- Badge interactivo de la Mascota -->
       <div class="inline-flex items-center gap-2 sm:gap-2.5 px-4 py-2 rounded-2xl sm:rounded-full bg-black/75 border border-brand-orange/50 backdrop-blur-md mb-6 sm:mb-8 animate-float shadow-xl max-w-full">
         <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-full overflow-hidden border border-brand-gold shrink-0">
           <img src="quekanonas-mascots.jpg" alt="Pareja de Quesadillos" class="w-full h-full object-cover">
@@ -328,7 +343,7 @@
         </span>
       </div>
 
-      <!-- Título de Gran Impacto (Interlineado leading-[1.08] en móvil para evitar que tildes y letras choquen) -->
+      <!-- Título de Gran Impacto -->
       <h1 class="font-display font-black text-4xl xs:text-5xl sm:text-7xl lg:text-8xl xl:text-[5.5rem] uppercase tracking-tight sm:tracking-tighter leading-[1.08] xs:leading-[1.05] sm:leading-[0.95] mb-6 drop-shadow-2xl pb-1">
         El Crunch más <br>
         <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange via-brand-gold to-white inline-block">
@@ -344,13 +359,13 @@
       <!-- CTAs principales -->
       <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-4 w-full sm:w-auto justify-center max-w-sm sm:max-w-none">
         
-        <a href="#menu" class="w-full sm:w-auto px-7 py-3.5 sm:py-4 rounded-full bg-brand-orange hover:bg-brand-orangeHover text-white font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 transform hover:-translate-y-1 badge-crunch flex items-center justify-center gap-3 group tap-target">
+        <a href="#menu" class="w-full sm:w-auto px-7 py-3.5 sm:py-4 rounded-full bg-brand-orange hover:bg-brand-orangeHover text-white font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 transform hover:-translate-y-1 badge-crunch flex items-center justify-center gap-3 group tap-target whitespace-nowrap">
           <i class="fa-solid fa-fire text-brand-gold group-hover:scale-125 transition-transform"></i>
           <span>Explorar el Menú Frito</span>
           <i class="fa-solid fa-arrow-down text-[11px] group-hover:translate-y-0.5 transition-transform"></i>
         </a>
 
-        <a href="#sucursales" class="w-full sm:w-auto px-7 py-3.5 sm:py-4 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/25 font-bold text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-3 backdrop-blur-md hover:border-brand-gold tap-target">
+        <a href="#sucursales" class="w-full sm:w-auto px-7 py-3.5 sm:py-4 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/25 font-bold text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-3 backdrop-blur-md hover:border-brand-gold tap-target whitespace-nowrap">
           <i class="fa-solid fa-location-dot text-brand-gold"></i>
           <span>Juriquilla, Querétaro</span>
         </a>
@@ -368,7 +383,7 @@
     </div>
   </section>
 
-  <!-- ==================== MARQUEE TICKER DOBLE (SEPARACIÓN SEGURA EN MÓVIL) ==================== -->
+  <!-- ==================== MARQUEE TICKER DOBLE ==================== -->
   <div class="relative z-20 overflow-hidden w-full py-4 -my-1">
     <!-- Ribbon 1: Naranja Intenso -->
     <div class="w-[110%] -ml-[5%] bg-brand-orange py-3 sm:py-3.5 overflow-hidden whitespace-nowrap rotate-[-1.5deg] shadow-xl border-y-2 border-brand-dark flex items-center">
@@ -390,7 +405,7 @@
       </div>
     </div>
 
-    <!-- Ribbon 2: Dark & Gold (Con mt-3 en móvil para que los textos NUNCA se encimen entre sí) -->
+    <!-- Ribbon 2: Dark & Gold (Separado limpiamente) -->
     <div class="w-[110%] -ml-[5%] bg-brand-surface py-2.5 sm:py-2.5 overflow-hidden whitespace-nowrap rotate-[1deg] mt-3 sm:mt-1 shadow-xl border-y border-brand-gold/30 flex items-center">
       <div class="inline-flex items-center gap-6 sm:gap-8 animate-marquee-right text-brand-gold font-sans font-black text-[11px] sm:text-xs uppercase tracking-widest shrink-0">
         <span>⚡ 100% MAÍZ REAL NIXTAMALIZADO</span>
@@ -413,7 +428,7 @@
   <section id="menu" class="py-20 sm:py-28 px-4 sm:px-6 max-w-7xl mx-auto relative">
     
     <!-- Encabezado de Sección -->
-    <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-10 sm:mb-16 gap-6 sm:gap-8">
+    <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-8 sm:mb-12 gap-6 sm:gap-8">
       <div>
         <div class="flex items-center gap-2.5 sm:gap-3 mb-2.5">
           <span class="px-3 sm:px-3.5 py-1 rounded-full bg-brand-orange/20 text-brand-orange text-[10px] sm:text-xs font-black uppercase tracking-widest border border-brand-orange/30">
@@ -433,23 +448,26 @@
       </div>
     </div>
 
-    <!-- Carrusel de Filtros de Categorías -->
-    <div class="flex items-center gap-2 overflow-x-auto pb-4 mb-8 sm:mb-12 no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0">
-      <button onclick="filterCategory('all', this)" class="category-pill active px-4 sm:px-5 py-2.5 rounded-full text-xs font-black uppercase tracking-wider bg-brand-orange text-white whitespace-nowrap shadow-md transition-all tap-target">
-        Ver Todo el Menú
-      </button>
-      <button onclick="filterCategory('quekas', this)" class="category-pill px-4 sm:px-5 py-2.5 rounded-full text-xs font-black uppercase tracking-wider bg-brand-surface text-brand-mutedLight hover:text-white hover:bg-white/10 whitespace-nowrap border border-white/5 transition-all tap-target">
-        Quekas Fritas
-      </button>
-      <button onclick="filterCategory('tacos', this)" class="category-pill px-4 sm:px-5 py-2.5 rounded-full text-xs font-black uppercase tracking-wider bg-brand-surface text-brand-mutedLight hover:text-white hover:bg-white/10 whitespace-nowrap border border-white/5 transition-all tap-target">
-        Tacos Milanesos
-      </button>
-      <button onclick="filterCategory('tortas', this)" class="category-pill px-4 sm:px-5 py-2.5 rounded-full text-xs font-black uppercase tracking-wider bg-brand-surface text-brand-mutedLight hover:text-white hover:bg-white/10 whitespace-nowrap border border-white/5 transition-all tap-target">
-        Tortas & Pambazos
-      </button>
-      <button onclick="filterCategory('antojitos', this)" class="category-pill px-4 sm:px-5 py-2.5 rounded-full text-xs font-black uppercase tracking-wider bg-brand-surface text-brand-mutedLight hover:text-white hover:bg-white/10 whitespace-nowrap border border-white/5 transition-all tap-target">
-        Flautas & Sopes
-      </button>
+    <!-- ==================== BOTONES DE ARRIBA DEL MENÚ (SOLUCIÓN DEFINITIVA DE ENCIMADO) ==================== -->
+    <!-- Contenedor con w-full overflow-x-auto y contenedor interno w-max para que NUNCA se encojan ni encimen los textos -->
+    <div class="w-full overflow-x-auto pb-4 mb-8 sm:mb-12 no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0">
+      <div class="flex items-center gap-2 sm:gap-3 w-max min-w-full">
+        <button onclick="filterCategory('all', this)" class="category-pill active shrink-0 whitespace-nowrap inline-flex items-center justify-center px-4 sm:px-5 py-2.5 rounded-full text-xs font-black uppercase tracking-wider bg-brand-orange text-white shadow-md transition-all leading-normal">
+          Ver Todo el Menú
+        </button>
+        <button onclick="filterCategory('quekas', this)" class="category-pill shrink-0 whitespace-nowrap inline-flex items-center justify-center px-4 sm:px-5 py-2.5 rounded-full text-xs font-black uppercase tracking-wider bg-brand-surface text-brand-mutedLight hover:text-white hover:bg-white/10 border border-white/5 transition-all leading-normal">
+          Quekas Fritas
+        </button>
+        <button onclick="filterCategory('tacos', this)" class="category-pill shrink-0 whitespace-nowrap inline-flex items-center justify-center px-4 sm:px-5 py-2.5 rounded-full text-xs font-black uppercase tracking-wider bg-brand-surface text-brand-mutedLight hover:text-white hover:bg-white/10 border border-white/5 transition-all leading-normal">
+          Tacos Milanesos
+        </button>
+        <button onclick="filterCategory('tortas', this)" class="category-pill shrink-0 whitespace-nowrap inline-flex items-center justify-center px-4 sm:px-5 py-2.5 rounded-full text-xs font-black uppercase tracking-wider bg-brand-surface text-brand-mutedLight hover:text-white hover:bg-white/10 border border-white/5 transition-all leading-normal">
+          Tortas & Pambazos
+        </button>
+        <button onclick="filterCategory('antojitos', this)" class="category-pill shrink-0 whitespace-nowrap inline-flex items-center justify-center px-4 sm:px-5 py-2.5 rounded-full text-xs font-black uppercase tracking-wider bg-brand-surface text-brand-mutedLight hover:text-white hover:bg-white/10 border border-white/5 transition-all leading-normal">
+          Flautas & Sopes
+        </button>
+      </div>
     </div>
 
     <!-- Grid de Platillos con Separación Limpia entre Badges y Mascotas -->
@@ -466,14 +484,13 @@
               <source src="quekanonas-hero.mp4" type="video/mp4">
             </video>
             
-            <!-- Badge con max-w-[70%] para nunca colisionar con el logo de la derecha -->
             <div class="absolute top-3.5 left-3.5 max-w-[70%]">
-              <span class="bg-brand-orange text-white text-[10px] sm:text-[11px] font-black uppercase tracking-wider px-3 py-1.5 rounded-full shadow-lg border border-white/20 inline-block">
+              <span class="bg-brand-orange text-white text-[10px] sm:text-[11px] font-black uppercase tracking-wider px-3 py-1.5 rounded-full shadow-lg border border-white/20 inline-block whitespace-nowrap">
                 La Leyenda
               </span>
             </div>
             
-            <span class="absolute bottom-3.5 right-3.5 bg-black/85 backdrop-blur-md text-white text-[10px] sm:text-[11px] font-bold px-2.5 py-1 rounded-full border border-white/15">
+            <span class="absolute bottom-3.5 right-3.5 bg-black/85 backdrop-blur-md text-white text-[10px] sm:text-[11px] font-bold px-2.5 py-1 rounded-full border border-white/15 whitespace-nowrap">
               Con o Sin Queso
             </span>
 
@@ -513,9 +530,8 @@
               <source src="tacos-milanesos.mp4" type="video/mp4">
             </video>
 
-            <!-- Badge delimitado para que en pantallas de 320px nunca toque la mascota -->
             <div class="absolute top-3.5 left-3.5 max-w-[70%]">
-              <span class="bg-brand-gold text-brand-dark text-[10px] sm:text-[11px] font-black uppercase tracking-wider px-3 py-1.5 rounded-full shadow-lg inline-block">
+              <span class="bg-brand-gold text-brand-dark text-[10px] sm:text-[11px] font-black uppercase tracking-wider px-3 py-1.5 rounded-full shadow-lg inline-block whitespace-nowrap">
                 Flameados al Momento
               </span>
             </div>
@@ -557,7 +573,7 @@
             </video>
 
             <div class="absolute top-3.5 left-3.5 max-w-[70%]">
-              <span class="bg-white/25 backdrop-blur-md text-white text-[10px] sm:text-[11px] font-black uppercase tracking-wider px-3 py-1.5 rounded-full border border-white/20 inline-block">
+              <span class="bg-white/25 backdrop-blur-md text-white text-[10px] sm:text-[11px] font-black uppercase tracking-wider px-3 py-1.5 rounded-full border border-white/20 inline-block whitespace-nowrap">
                 Tamaño Monumental
               </span>
             </div>
@@ -599,7 +615,7 @@
             </video>
 
             <div class="absolute top-3.5 left-3.5 max-w-[70%]">
-              <span class="bg-brand-greenBright text-black text-[10px] sm:text-[11px] font-black uppercase tracking-wider px-3 py-1.5 rounded-full shadow-lg inline-block">
+              <span class="bg-brand-greenBright text-black text-[10px] sm:text-[11px] font-black uppercase tracking-wider px-3 py-1.5 rounded-full shadow-lg inline-block whitespace-nowrap">
                 Fritura Perfecta
               </span>
             </div>
@@ -641,7 +657,7 @@
             </video>
 
             <div class="absolute top-3.5 left-3.5 max-w-[70%]">
-              <span class="bg-red-600 text-white text-[10px] sm:text-[11px] font-black uppercase tracking-wider px-3 py-1.5 rounded-full shadow-lg inline-block">
+              <span class="bg-red-600 text-white text-[10px] sm:text-[11px] font-black uppercase tracking-wider px-3 py-1.5 rounded-full shadow-lg inline-block whitespace-nowrap">
                 Guajillo Real
               </span>
             </div>
@@ -675,7 +691,6 @@
       <!-- Card 6: Promo / Combo Kañón -->
       <div class="menu-item-card bg-gradient-to-br from-brand-orange via-brand-crimson to-red-800 rounded-3xl p-6 sm:p-8 flex flex-col justify-between text-white relative overflow-hidden group shadow-2xl border border-white/20" data-category="combos">
         
-        <!-- Watermark sutil sin estorbar el texto -->
         <div class="absolute -right-10 -bottom-10 opacity-10 pointer-events-none">
           <img src="quekanonas-mascots.jpg" alt="Mascotas" class="w-56 h-56 rounded-full object-cover">
         </div>
@@ -685,7 +700,7 @@
             <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-2xl sm:text-3xl shadow-inner border border-white/20 shrink-0">
               🥤
             </div>
-            <span class="text-[9px] sm:text-[10px] font-black tracking-wider uppercase bg-black/50 px-3 py-1.5 rounded-full border border-white/15">
+            <span class="text-[9px] sm:text-[10px] font-black tracking-wider uppercase bg-black/50 px-3 py-1.5 rounded-full border border-white/15 whitespace-nowrap">
               Paquetes de Fin de Semana
             </span>
           </div>
@@ -702,9 +717,9 @@
         <div class="relative z-10 pt-4 border-t border-white/20">
           <a href="https://www.ubereats.com/mx/store/quekanonas-juriquilla-quekas-fritas/Ac-1CqJPWVuyh3cGKQbubQ" 
              target="_blank" 
-             class="inline-flex items-center justify-between w-full px-5 sm:px-6 py-3.5 sm:py-4 rounded-full bg-brand-dark text-white font-black text-xs uppercase tracking-wider hover:bg-black transition-all shadow-xl group/btn hover:scale-[1.02] tap-target">
+             class="inline-flex items-center justify-between w-full px-5 sm:px-6 py-3.5 sm:py-4 rounded-full bg-brand-dark text-white font-black text-xs uppercase tracking-wider hover:bg-black transition-all shadow-xl group/btn hover:scale-[1.02] tap-target whitespace-nowrap">
             <span>Pedir Combo en Uber Eats</span>
-            <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-brand-orange text-white flex items-center justify-center text-xs group-hover/btn:translate-x-1 transition-transform">
+            <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-brand-orange text-white flex items-center justify-center text-xs group-hover/btn:translate-x-1 transition-transform shrink-0">
               <i class="fa-solid fa-arrow-up-right-from-square"></i>
             </div>
           </a>
@@ -724,7 +739,7 @@
 
   </section>
 
-  <!-- ==================== BANNER BRAND STORY & MASCOTAS (SOLUCIÓN DEFINITIVA DE TEXTOS) ==================== -->
+  <!-- ==================== BANNER BRAND STORY & MASCOTAS ==================== -->
   <section id="experiencia" class="py-20 sm:py-28 bg-brand-cream text-brand-dark relative overflow-hidden">
     
     <div class="absolute top-0 right-0 w-80 h-80 bg-brand-orange/10 rounded-full blur-3xl pointer-events-none"></div>
@@ -732,13 +747,13 @@
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
       
-      <!-- Showcase Central de la Mascota Pareja de Quesadillos (Sin colisiones ni textos sobre textos) -->
+      <!-- Showcase Central de la Mascota Pareja de Quesadillos -->
       <div class="lg:col-span-5 flex flex-col items-center justify-center relative">
         
         <!-- Sello Circular -->
         <div class="relative w-64 h-64 xs:w-72 xs:h-72 sm:w-88 sm:h-88 lg:w-[26rem] lg:h-[26rem] flex items-center justify-center">
           
-          <!-- Anillo de Texto Giratorio Externo (Sólo en Desktop/Tablet para no encimarse en móvil) -->
+          <!-- Anillo de Texto Giratorio Externo (Tablet y Desktop) -->
           <div class="hidden sm:block absolute inset-0 w-full h-full animate-spin-reverse pointer-events-none">
             <svg viewBox="0 0 200 200" class="w-full h-full">
               <path id="textCircleStory" d="M 100, 100 m -82, 0 a 82,82 0 1,1 164,0 a 82,82 0 1,1 -164,0" fill="none"/>
@@ -761,14 +776,14 @@
                  class="w-full h-full object-cover rounded-full absolute inset-0 opacity-0 hover:opacity-10 transition-opacity">
           </div>
 
-          <!-- Sticker flotante 1: "Sabor con Músculo" (Posición segura sin colisión) -->
-          <div class="absolute top-1 left-1 sm:-top-3 sm:-left-2 bg-brand-orange text-white py-1.5 px-3 rounded-xl sm:rounded-2xl shadow-xl transform -rotate-12 border-2 border-white font-black text-[10px] sm:text-xs uppercase tracking-wider flex items-center gap-1.5 animate-bounce-subtle z-20">
+          <!-- Sticker flotante 1: "Sabor con Músculo" -->
+          <div class="absolute top-1 left-1 sm:-top-3 sm:-left-2 bg-brand-orange text-white py-1.5 px-3 rounded-xl sm:rounded-2xl shadow-xl transform -rotate-12 border-2 border-white font-black text-[10px] sm:text-xs uppercase tracking-wider flex items-center gap-1.5 animate-bounce-subtle z-20 whitespace-nowrap">
             <span>💪</span>
             <span>Sabor con Músculo</span>
           </div>
 
-          <!-- Sticker flotante 2: "DESDE 1995" (Posición segura sin colisión) -->
-          <div class="absolute bottom-1 right-1 sm:-bottom-4 sm:-right-2 bg-brand-dark text-white p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl shadow-2xl border-2 border-brand-gold transform rotate-6 z-20">
+          <!-- Sticker flotante 2: "DESDE 1995" -->
+          <div class="absolute bottom-1 right-1 sm:-bottom-4 sm:-right-2 bg-brand-dark text-white p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl shadow-2xl border-2 border-brand-gold transform rotate-6 z-20 whitespace-nowrap">
             <p class="text-[8px] sm:text-[9px] tracking-widest uppercase font-bold text-brand-gold">Tradición Auténtica</p>
             <p class="font-display font-black text-lg sm:text-2xl leading-none mt-0.5">DESDE 1995</p>
           </div>
@@ -776,10 +791,11 @@
         </div>
 
         <div class="mt-6 sm:mt-8 text-center max-w-xs">
-          <p class="text-xs font-black uppercase tracking-wider text-brand-dark/80">
-            Conoce a los Quekadillos Oficiales
+          <!-- Nombre con Tipografía Adlery Blockletter -->
+          <p class="font-brand-logo text-lg sm:text-xl uppercase tracking-wide text-brand-dark">
+            QUEKAÑONAS
           </p>
-          <p class="text-[11px] text-gray-600 mt-1 font-semibold">
+          <p class="text-[11px] text-gray-600 mt-0.5 font-semibold">
             ¡La del cucharón colador & el forzudo de la mancuerna!
           </p>
         </div>
@@ -794,7 +810,6 @@
           <span>La Filosofía de la Queka</span>
         </div>
 
-        <!-- H2 con leading-tight (1.15) para que comillas y acentos nunca choquen con la línea superior -->
         <h2 class="font-display font-black text-3xl xs:text-4xl sm:text-6xl uppercase tracking-tight text-brand-dark leading-[1.12] sm:leading-[1.05] mb-5 sm:mb-6">
           “Porque sin queso, <br>
           <span class="text-brand-orange">también son quesadillas”</span>
@@ -900,7 +915,7 @@
           <div class="flex flex-col sm:flex-row gap-3.5 mt-6 sm:mt-8">
             <a href="https://www.ubereats.com/mx/store/quekanonas-juriquilla-quekas-fritas/Ac-1CqJPWVuyh3cGKQbubQ" 
                target="_blank" 
-               class="w-full sm:w-auto px-7 py-3.5 sm:py-4 rounded-full bg-brand-greenBright hover:bg-green-500 text-black font-black text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-3 shadow-xl hover:scale-105 active:scale-95 tap-target">
+               class="w-full sm:w-auto px-7 py-3.5 sm:py-4 rounded-full bg-brand-greenBright hover:bg-green-500 text-black font-black text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-3 shadow-xl hover:scale-105 active:scale-95 tap-target whitespace-nowrap">
               <i class="fa-solid fa-motorcycle text-base"></i>
               <span>Pedir en Uber Eats</span>
               <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
@@ -908,7 +923,7 @@
 
             <a href="https://www.instagram.com/quekanonas/" 
                target="_blank" 
-               class="w-full sm:w-auto px-7 py-3.5 sm:py-4 rounded-full bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 text-white font-black text-xs uppercase tracking-wider hover:opacity-90 transition-all flex items-center justify-center gap-3 shadow-xl hover:scale-105 active:scale-95 tap-target">
+               class="w-full sm:w-auto px-7 py-3.5 sm:py-4 rounded-full bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 text-white font-black text-xs uppercase tracking-wider hover:opacity-90 transition-all flex items-center justify-center gap-3 shadow-xl hover:scale-105 active:scale-95 tap-target whitespace-nowrap">
               <i class="fa-brands fa-instagram text-base"></i>
               <span>@quekanonas</span>
             </a>
@@ -916,7 +931,7 @@
 
         </div>
 
-        <!-- Tarjeta Empaque Térmico (Espaciado mt-10 en móvil para separación limpia) -->
+        <!-- Tarjeta Empaque Térmico -->
         <div class="lg:col-span-5 bg-gradient-to-b from-brand-surfaceElevated to-brand-dark rounded-3xl p-6 sm:p-8 border border-white/10 text-center flex flex-col items-center shadow-2xl relative group mt-10 lg:mt-0">
           
           <div class="absolute -top-6 right-6 sm:-top-7 sm:right-8 w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden border-2 border-brand-orange shadow-lg bg-brand-dark">
@@ -935,7 +950,7 @@
             Diseñamos empaques ventilados para que tus quesadillas fritas lleguen a tu casa tan crujientes como si estuvieras frente al comal.
           </p>
 
-          <div class="w-full py-3 sm:py-3.5 rounded-2xl bg-white/5 border border-brand-gold/30 text-brand-gold text-[11px] sm:text-xs font-black tracking-wider sm:tracking-widest uppercase flex items-center justify-center gap-2">
+          <div class="w-full py-3 sm:py-3.5 rounded-2xl bg-white/5 border border-brand-gold/30 text-brand-gold text-[11px] sm:text-xs font-black tracking-wider sm:tracking-widest uppercase flex items-center justify-center gap-2 whitespace-nowrap">
             <span>⚡</span>
             <span>100% Caliente & Crujiente</span>
             <span>⚡</span>
@@ -975,7 +990,7 @@
       <div class="space-y-3">
         <a href="https://www.ubereats.com/mx/store/quekanonas-juriquilla-quekas-fritas/Ac-1CqJPWVuyh3cGKQbubQ" 
            target="_blank" 
-           class="w-full py-3.5 sm:py-4 px-5 sm:px-6 rounded-2xl bg-brand-greenBright hover:bg-green-500 text-black font-black text-xs uppercase tracking-wider flex items-center justify-between transition-transform hover:scale-[1.02] shadow-lg tap-target">
+           class="w-full py-3.5 sm:py-4 px-5 sm:px-6 rounded-2xl bg-brand-greenBright hover:bg-green-500 text-black font-black text-xs uppercase tracking-wider flex items-center justify-between transition-transform hover:scale-[1.02] shadow-lg tap-target whitespace-nowrap">
           <span class="flex items-center gap-2.5 sm:gap-3">
             <i class="fa-solid fa-motorcycle text-base sm:text-lg"></i>
             <span>Pedir por Uber Eats (A domicilio)</span>
@@ -985,7 +1000,7 @@
 
         <a href="https://www.instagram.com/quekanonas/" 
            target="_blank" 
-           class="w-full py-3.5 sm:py-4 px-5 sm:px-6 rounded-2xl bg-white/10 hover:bg-white/20 text-white font-black text-xs uppercase tracking-wider flex items-center justify-between transition-transform hover:scale-[1.02] border border-white/10 tap-target">
+           class="w-full py-3.5 sm:py-4 px-5 sm:px-6 rounded-2xl bg-white/10 hover:bg-white/20 text-white font-black text-xs uppercase tracking-wider flex items-center justify-between transition-transform hover:scale-[1.02] border border-white/10 tap-target whitespace-nowrap">
           <span class="flex items-center gap-2.5 sm:gap-3">
             <i class="fa-brands fa-instagram text-base sm:text-lg text-pink-500"></i>
             <span>Contactar en Instagram (Pick-up)</span>
@@ -1008,13 +1023,14 @@
     
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8 mb-12 pb-8 sm:pb-12 border-b border-white/10 text-center md:text-left">
       
-      <!-- Logo Footer con Mascota -->
+      <!-- Logo Footer con Mascota & Tipografía Adlery Blockletter Oficial -->
       <div class="flex items-center gap-3.5 sm:gap-4">
         <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden border-2 border-brand-orange bg-brand-orange p-0.5 shadow-xl shrink-0">
           <img src="quekanonas-mascots.jpg" alt="Mascotas Quekañonas" class="w-full h-full object-cover">
         </div>
         <div>
-          <span class="font-display font-black text-2xl sm:text-3xl uppercase tracking-tighter text-white block">
+          <!-- Nombre con Tipografía Adlery Blockletter -->
+          <span class="font-brand-logo text-2xl sm:text-3xl uppercase tracking-wider text-white block">
             QUEKAÑONAS
           </span>
           <span class="text-[9px] sm:text-[10px] tracking-widest text-brand-gold uppercase font-bold">
@@ -1048,26 +1064,26 @@
 
   </footer>
 
-  <!-- ==================== BARRA FLOTANTE MÓVIL (QUICK ORDER BOTTOM BAR) ==================== -->
+  <!-- ==================== BARRA FLOTANTE MÓVIL ==================== -->
   <aside aria-label="Acceso Rápido Móvil" class="md:hidden fixed bottom-3 left-3 right-3 z-40">
     <div class="bg-brand-dark/95 backdrop-blur-xl border border-white/20 rounded-full p-2 pl-3 shadow-2xl flex items-center justify-between">
-      <div class="flex items-center gap-2.5 min-w-0 pr-2">
+      <div class="flex items-center gap-2 min-w-0 pr-2">
         <div class="w-8 h-8 rounded-full overflow-hidden border border-brand-orange bg-brand-orange shrink-0">
           <img src="quekanonas-mascots.jpg" alt="Mascota" class="w-full h-full object-cover">
         </div>
         <div class="flex flex-col min-w-0">
-          <span class="text-[11px] font-black uppercase text-white leading-tight truncate">¿Antojo Kañón?</span>
+          <span class="font-brand-logo text-xs text-white leading-tight truncate">QUEKAÑONAS</span>
           <span class="text-[9px] text-brand-gold font-bold uppercase truncate">Juriquilla, Qro.</span>
         </div>
       </div>
 
       <div class="flex items-center gap-2 shrink-0">
-        <a href="#menu" class="px-3 py-2 rounded-full bg-white/10 text-white text-[10px] font-black uppercase tracking-wider">
+        <a href="#menu" class="px-3 py-2 rounded-full bg-white/10 text-white text-[10px] font-black uppercase tracking-wider whitespace-nowrap">
           Menú
         </a>
         <a href="https://www.ubereats.com/mx/store/quekanonas-juriquilla-quekas-fritas/Ac-1CqJPWVuyh3cGKQbubQ" 
            target="_blank" 
-           class="px-4 py-2 rounded-full bg-brand-orange text-white text-[11px] font-black uppercase tracking-wider flex items-center gap-1.5 shadow-md active:scale-95">
+           class="px-4 py-2 rounded-full bg-brand-orange text-white text-[11px] font-black uppercase tracking-wider flex items-center gap-1.5 shadow-md active:scale-95 whitespace-nowrap">
           <span>Pedir</span>
           <i class="fa-solid fa-arrow-right text-[9px]"></i>
         </a>

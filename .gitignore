@@ -1,0 +1,8 @@
+# OS and Environment
+.DS_Store
+Thumbs.db
+*.tmp
+*~
+
+# Vercel
+.vercel
